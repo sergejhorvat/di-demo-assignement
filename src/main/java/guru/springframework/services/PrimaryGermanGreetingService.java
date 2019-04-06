@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 /**
  * Created by jt on 5/24/17.
  */
-@Service
-@Profile("de")
-@Primary
+// Removed and put into config/GreetingServiceConfig file
+//@Service
+//@Profile("de")
+//@Primary
 public class PrimaryGermanGreetingService implements GreetingService {
 
-    @Autowired
+    //@Autowired
     private GreetingRepository greetingRepository;
+
+    public PrimaryGermanGreetingService(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
+    }
 
     @Override
     @Qualifier("greetingServiceImpl")

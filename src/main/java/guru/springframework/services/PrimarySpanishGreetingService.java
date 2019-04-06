@@ -8,13 +8,19 @@ import org.springframework.stereotype.Service;
 /**
  * Created by jt on 5/24/17.
  */
-@Service
-@Profile("es")
-@Primary
+
+// Removed and put into config/GreetingServiceConfig file
+//@Service
+//@Profile("es")
+//@Primary
 public class PrimarySpanishGreetingService implements GreetingService {
 
-    @Autowired
+    //@Autowired
     private GreetingRepository greetingRepository;
+
+    public PrimarySpanishGreetingService(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
+    }
 
     @Override
     public String sayGreeting() {
